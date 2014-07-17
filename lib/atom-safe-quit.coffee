@@ -56,6 +56,7 @@ class AtomSafeQuit
     "/Users/jipiboily/code/atom-safe-quit/tmp/#{fileName}.json"
 
   restoreWindow: ->
+    return unless fs.isFileSync(@filePath(atom.project.getPath()))
     @loadState()
     @scracthAll()
 
