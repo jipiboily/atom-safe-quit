@@ -1,6 +1,5 @@
 {$} = require 'atom'
 fs = require 'fs-plus'
-# {Subscriber} = require 'emissary'
 
 module.exports =
 class AtomSafeQuit
@@ -17,35 +16,15 @@ class AtomSafeQuit
   bindEvents: ->
     $(window).on 'beforeunload', (e) =>
       @saveWindowState()
-      false
 
     $(window).on 'ready', =>
       @restoreWindow()
-      # false
-    # @subscribe buffer, 'will-be-saved', =>
-    #   @saveWindowState()
-    #   false
-    # $(window).on 'beforeunload', ->
-    #   console.log('beforeunload')
-    $(window).on 'close', ->
-      console.log('close')
-    $(window).on 'unload', ->
-      console.log('unload')
-    # window.onbeforeunload = (e) =>
-    #   console.log('closing...?')
-    #   @saveWindowState()
-    #   e.preventDefault() # for testing purpose only...
 
   saveWindowState: ->
     @resetStateObj()
     @state.rootPath = atom.project.getPath()
     for pane in atom.workspace.getPanes()
       @savePaneState(pane)
-    console.log(@state)
-    console.log(JSON.stringify(@state))
-    # fileName = btoa(@state.rootPath)
-    # filePath = "/Users/jipiboily/code/atom-safe-quit/tmp/#{fileName}.json"
-    console.log('meh')
     fs.writeFileSync(@filePath(@state.rootPath), JSON.stringify(@state))
 
   savePaneState: (pane) ->

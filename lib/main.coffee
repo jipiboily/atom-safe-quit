@@ -7,6 +7,3 @@ module.exports =
   deactivate: ->
     @atomSafeQuit?.destroy()
     @atomSafeQuit = null
-
-  serialize: ->
-    # atomSafeQuitViewState: @atomSafeQuitView.serialize()
