@@ -1,0 +1,14 @@
+{
+  "name": "atom-safe-quit",
+  "main": "./lib/main",
+  "version": "0.0.0",
+  "description": "Safely quit Atom then reopen in the same state",
+  "repository": "https://github.com/jipiboily/atom-safe-quit",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "fs-plus": "2.x"
+  }
+}

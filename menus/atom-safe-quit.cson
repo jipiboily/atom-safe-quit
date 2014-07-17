@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable atom-safe-quit': 'atom-safe-quit:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'atom-safe-quit'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'atom-safe-quit:toggle' }
+      ]
+    ]
+  }
+]
